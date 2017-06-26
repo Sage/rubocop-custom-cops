@@ -1,7 +1,4 @@
-require "rubocop/custom/version"
+require 'rubocop'
 
-module Rubocop
-  module Custom
-    # Your code goes here...
-  end
-end
+# cops
+require 'rubocop/rails/errors_add_with_symbol'
