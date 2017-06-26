@@ -9,7 +9,7 @@ module RuboCop
     # within the method, allowing to generate error messages in different
     # languages. That's not possible when already translated strings are
     # passed to this method.
-    class ErrorsAddWithSymbol
+    class ErrorsAddWithSymbol < RuboCop::Cop::Cop
     end
   end
 end
