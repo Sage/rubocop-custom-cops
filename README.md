@@ -1,3 +1,5 @@
+[![Travis Status](https://travis-ci.org/Sage/rubocop-custom.svg?branch=master)](https://travis-ci.org/Sage/rubocop-custom)
+
 # Rubocop::Custom
 
 Container for custom Rubocop checks, called cops.
