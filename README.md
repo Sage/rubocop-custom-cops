@@ -1,8 +1,6 @@
 # Rubocop::Custom
 
-Welcome to your new gem! In this directory, you'll find the files you need to be able to package up your Ruby library into a gem. Put your Ruby code in the file `lib/rubocop/custom`. To experiment with that code, run `bin/console` for an interactive prompt.
-
-TODO: Delete this and the text above, and describe your gem
+Container for custom Rubocop checks, called cops.
 
 ## Installation
 
@@ -24,6 +22,18 @@ Or install it yourself as:
 
 TODO: Write usage instructions here
 
+### Rails/ErrorsAddWithSymbol
+
+```ruby
+# bad
+person.errors.add(:name, 'this text is already translated')
+
+# good
+person.errors.add(:name, :proper_key_from_local_file)
+```
+
+Background: our API provides error messages in a general, English form, as well as localized in the users languages. This is only possible when the translation happens inside `errors.add`.
+
 ## Development
 
 After checking out the repo, run `bin/setup` to install dependencies. Then, run `rake spec` to run the tests. You can also run `bin/console` for an interactive prompt that will allow you to experiment.
@@ -32,7 +42,7 @@ To install this gem onto your local machine, run `bundle exec rake install`. To 
 
 ## Contributing
 
-Bug reports and pull requests are welcome on GitHub at https://github.com/cpetschnig/rubocop-custom. This project is intended to be a safe, welcoming space for collaboration, and contributors are expected to adhere to the [Contributor Covenant](http://contributor-covenant.org) code of conduct.
+Bug reports and pull requests are welcome on GitHub at https://github.com/Sage/rubocop-custom. This project is intended to be a safe, welcoming space for collaboration, and contributors are expected to adhere to the [Contributor Covenant](http://contributor-covenant.org) code of conduct.
 
 ## License
 

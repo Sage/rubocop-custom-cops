@@ -6,8 +6,8 @@ $LOAD_PATH.unshift(lib) unless $LOAD_PATH.include?(lib)
 Gem::Specification.new do |spec|
   spec.name          = 'rubocop-custom'
   spec.version       = '0.0.1'
-  spec.authors       = ['Christoph Petschnig']
-  spec.email         = ['christoph.petschnig@sage.com']
+  spec.authors       = ['Sage One team']
+  spec.email         = ['support@sageone.com']
 
   spec.summary       = 'Custom Cops for Rubocop'
   spec.description   = 'Collection of custom checks for Rubocop.'
@@ -26,8 +26,6 @@ Gem::Specification.new do |spec|
   spec.files = `git ls-files -z`.split("\x0").reject do |f|
     f.match(%r{^(test|spec|features)/})
   end
-  spec.bindir        = 'exe'
-  spec.executables   = spec.files.grep(%r{^exe/}) { |f| File.basename(f) }
   spec.require_paths = ['lib']
 
   spec.add_dependency 'rubocop'
