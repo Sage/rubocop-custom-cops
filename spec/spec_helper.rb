@@ -1,8 +1,5 @@
 require 'bundler/setup'
-require 'rubocop/custom'
-
-$LOAD_PATH.unshift File.expand_path('../../lib', __FILE__)
-require 'rubocop/custom'
+require 'rubocop/custom_cops'
 
 require 'rubocop/rspec/support'
 

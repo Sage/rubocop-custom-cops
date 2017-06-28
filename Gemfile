@@ -1,4 +1,4 @@
 source 'https://rubygems.org'
 
-# Specify your gem's dependencies in rubocop-custom.gemspec
+# Specify your gem's dependencies in rubocop-custom-cops.gemspec
 gemspec
