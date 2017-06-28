@@ -28,6 +28,12 @@ module RuboCop
 
         return if message_node.nil? || message_node.sym_type? || symbolizes?(message_node)
 
+        generate_offense(node)
+      end
+
+      private
+
+      def generate_offense(node)
         range = range_between(node.arguments[1].loc.expression.begin_pos,
                               node.arguments[1].loc.expression.end_pos)
 
