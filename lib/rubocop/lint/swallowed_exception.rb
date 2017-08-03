@@ -5,7 +5,7 @@ module RuboCop
   module Lint
     # SwallowException class for enforcing correct exception handling
     class SwallowedException < RuboCop::Cop::Cop
-      # determines whether excpetions are being handled correctly
+      # determines whether exceptions are being handled correctly
       def on_resbody(node)
         unless node.children[2]
           add_offense(node, :expression, 'rescue body is empty!', :fatal)
