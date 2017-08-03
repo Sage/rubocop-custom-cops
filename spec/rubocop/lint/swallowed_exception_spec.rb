@@ -41,7 +41,7 @@ RSpec.describe RuboCop::Lint::SwallowedException do
       expect_no_offenses(<<-RUBY.strip_indent)
         class Person < ActiveRecord::Base
           def my_validation
-            begin 
+            begin
 
             rescue => e
               raise e
@@ -58,7 +58,7 @@ RSpec.describe RuboCop::Lint::SwallowedException do
         expect_offense(<<-RUBY.strip_indent)
         class Person < ActiveRecord::Base
           def my_validation
-            begin 
+            begin
 
             rescue
             ^^^^^^ rescue body is empty!
@@ -75,7 +75,7 @@ RSpec.describe RuboCop::Lint::SwallowedException do
       expect_offense(<<-RUBY.strip_indent)
         class Person < ActiveRecord::Base
           def my_validation
-            begin 
+            begin
 
             rescue
             ^^^^^^ you have to raise exception or capture exception by NewRelic in rescue body.
