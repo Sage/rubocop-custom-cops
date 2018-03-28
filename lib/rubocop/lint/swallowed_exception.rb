@@ -8,14 +8,14 @@ module RuboCop
       # determines whether exceptions are being handled correctly
       def on_resbody(node)
         unless node.children[2]
-          add_offense(node, :expression, 'rescue body is empty!', :fatal)
+          add_offense(node, location: :expression, message: 'rescue body is empty!', severity: :fatal)
           return
         end
         body = node.children[2]
         return if raises?(body)
         return if newrelic_captured_exception?(body)
         # rubocop:disable Style/RedundantParentheses
-        add_offense(node, :expression, (<<-MSG).strip, :fatal)
+        add_offense(node, location: :expression, message: (<<-MSG).strip, severity: :fatal)
         you have to raise exception or capture exception by NewRelic in rescue body.
         MSG
         # rubocop:enable Style/RedundantParentheses
