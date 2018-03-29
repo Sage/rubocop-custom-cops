@@ -1,6 +1,4 @@
-[![Travis Status](https://travis-ci.org/Sage/rubocop-custom-cops.svg?branch=master)](https://travis-ci.org/Sage/rubocop-custom-cops)
-
-# Rubocop Custom Cops
+# Rubocop Custom Cops [![Build Status](https://travis-ci.org/Sage/rubocop-custom-cops.svg?branch=master)](https://travis-ci.org/Sage/rubocop-custom-cops) [![Maintainability](https://api.codeclimate.com/v1/badges/960efd688f42eaaeef91/maintainability)](https://codeclimate.com/github/Sage/rubocop-custom-cops/maintainability) [![Test Coverage](https://api.codeclimate.com/v1/badges/960efd688f42eaaeef91/test_coverage)](https://codeclimate.com/github/Sage/rubocop-custom-cops/test_coverage) [![Gem Version](https://badge.fury.io/rb/rubocop-custom-cops.svg)](https://badge.fury.io/rb/rubocop-custom-cops)
 
 Container for custom Rubocop checks, called cops.
 
