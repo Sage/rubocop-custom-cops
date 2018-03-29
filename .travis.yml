@@ -8,3 +8,22 @@ install:
 script:
   - bundle exec rspec
   - bundle exec rubocop
+before_script:
+  - curl -L https://codeclimate.com/downloads/test-reporter/test-reporter-latest-linux-amd64
+    > ./cc-test-reporter
+  - chmod +x ./cc-test-reporter
+  - "./cc-test-reporter before-build"
+after_script:
+  - "./cc-test-reporter after-build --exit-code $TRAVIS_TEST_RESULT"
+env:
+  global:
+    secure: nI5EElusvzhBjSWx1NU5iFQ3f6ixXX4d502EQ3DigF9k+zfVGL7XuhpuTQYKOIZ4GdzZYIPKtBC4pppCEdv+8lPgBCJwnlJdhIln9xcD3+vQzbeRGEEZT8wd5soG2VouQALIDqHIMluo/ukj3eIIFOA4867MfCH/m4osBH/oSC4kjipp5h0tdL5wCEqDErvfOw8Dqy2yERHaI9hxb429ERX0t+oaA5r7sZm1oHSQAT5T7xARBjghG7H1ZDKFZ7kyrLxpWR6VvnW3i1GuPs7nmho11e7N28Ims6wzkAxea7qIvVHQH3cm8b+GzoN94ij8z10GUZYysXOPHYj1mC9bTZiHoB/sgy9wY7aANpXf9Ff2YV+zz2HsMmVecwpKSEi0agi7+XpC3H6n+6OdKuWi0H1177PVSrEHel7XNsBMYoMUrkqof9VKly6Iq5LruSFtF7Ghsc9+KsVYtZksTzJdU2+N4VZEzEz5fnyykfyLlsLFcjPw2s7BS+PBALBgpW/hGKXSEpbBeMQ9lMBd0R072X4bYW9ZpfC7bWgyamKlMNB6YW9Fzb8eX5pAUyiWnxfNuIl7DPZ6DKZKMnYlcJ2gisZo+mJ3b3/XEDEk/a4vIQM3ElgEvlr216OEsw/gsyKWMGiWa3/eFoUhoflCpkpYzLe8Avinj5Px6oloLJ9MwxI=
+deploy:
+  provider: rubygems
+  api_key:
+    secure: brOUY1erNKOBJkrtX483n2vAvD+FjeG17J8NWc9DzVElNOn8+QQ5RWglJ+DNiq1P78OU1avI4MKc5hb5BnVJe4RPIW6cTxW8ru4EP4QjBU+ug2HWbbLvB0+2C41kWfe+zYsTs7pEf2Hd4A3EtBqz4S7nrDiRrRVlohbDqy27R7LniHFwmJuIlF3D57aldd7vYVZOpKy6OuW+ncYb30Jet0kzfXmZZEBPTxT4kixy5K2GEIXbqHGDxz84SStCBNR6Ktr3w1gzdkS8vZnnJGQMNQFS3VtBsIL+BVDRn0qgdNu28o70IY4t4hxfpPFc54vKMtLr+Gz7c00hyYJa2fn92tqx4EDa8/3N+pAeUxhPMvWJbpL9R4TwT4+99ESCpYbEJJDhVu4AbVMuCmBc5zCPDh2ybYGGPWab4na+Qbaml6huI48O4IZR1KKmLX5GiPiz9MaCV6rhfbzL6YdRoNnVH1NKxFzxUMyBOukhje8y8Pvq8RGWvqQrCQ3f26a+6r5D6gup+MpsntYgKkxJLzM6T16dr9kbyO2zbqzZcR/N6dga7AboGu+QY1wtVsCcbfaULyXpXlnO5bWEiyWqSpLxQlPlzrCbyNHjyMF13boo0QbT70DTp/Yw42oLqFL8rYjIEBflAzCKqO2hDBnd5xWGsfU8RdgvlzZ527fUj05UrLA=
+  gem: rubocop-custom-cops
+  on:
+    tags: true
+    repo: Sage/rubocop-custom-cops
+    condition: "$TRAVIS_RUBY_VERSION == 2.3.3"
