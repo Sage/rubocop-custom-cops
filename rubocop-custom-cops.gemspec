@@ -3,7 +3,7 @@ $LOAD_PATH.unshift(lib) unless $LOAD_PATH.include?(lib)
 
 Gem::Specification.new do |spec|
   spec.name          = 'rubocop-custom-cops'
-  spec.version       = '0.0.1'
+  spec.version       = '0.1.0'
   spec.authors       = ['Sage One team']
   spec.email         = ['support@sageone.com']
 
@@ -17,7 +17,7 @@ Gem::Specification.new do |spec|
   end
   spec.require_paths = ['lib']
 
-  spec.add_dependency 'rubocop', '~> 0.51.0'
+  spec.add_dependency 'rubocop', '>= 0.54.0'
 
   spec.add_development_dependency 'bundler', '~> 1.15'
   spec.add_development_dependency 'pry'

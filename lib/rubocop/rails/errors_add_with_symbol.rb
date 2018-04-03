@@ -10,6 +10,8 @@ module RuboCop
     # languages. That's not possible when already translated strings are
     # passed to this method.
     class ErrorsAddWithSymbol < RuboCop::Cop::Cop
+      include RuboCop::Cop::RangeHelp
+
       MSG = 'Only pass symbols to `errors.add`'.freeze
 
       def_node_matcher :errors_add?, <<-PATTERN
@@ -37,7 +39,7 @@ module RuboCop
         range = range_between(node.arguments[1].loc.expression.begin_pos,
                               node.arguments[1].loc.expression.end_pos)
 
-        add_offense(node, range, format(MSG))
+        add_offense(node, location: range, message: format(MSG))
       end
     end
   end
